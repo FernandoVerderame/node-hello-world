@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
         <body class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
             <h2>${start}</h2>
             <h1>${randomQuote.text}</h1>
-            <address>${randomQuote.author}</address>
+            <h5>${randomQuote.author}</h5>
         </body>
         </html>
         `);
