@@ -27,6 +27,7 @@ const getRandomQuote = () => {
 }
 
 http
+    // Creo il server
     .createServer(function (req, res) {
         res.writeHead(200, {
             "Content-Type": "text/html"
@@ -45,7 +46,7 @@ http
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             </head>
         </head>
-        <body class="vh-100 d-flex flex-column justify-content-center align-items-center">
+        <body class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
             <h2>${start}</h2>
             <h1>${randomQuote.text}</h1>
             <address>${randomQuote.author}</address>
@@ -53,6 +54,8 @@ http
         </html>
         `);
     })
+
+    // Avvio il server
     .listen(port, host, () => {
         const serverUrl = `http://${host}:${port}`;
         console.log(`Server avviato su ${serverUrl}`);
