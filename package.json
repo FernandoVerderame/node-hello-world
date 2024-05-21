@@ -1,0 +1,16 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Creiamo la prima applicazione con NodeJs e NPM dove inizializziamo npm tramite `npm init` ed installiamo le librerie dotenv e nodemon.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^22.2.0"
+  }
+}
