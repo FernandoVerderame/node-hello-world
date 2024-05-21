@@ -26,16 +26,24 @@ const getRandomQuote = () => {
     return quotes[randomIndex];
 }
 
-http
-    // Creo il server
-    .createServer(function (req, res) {
-        res.writeHead(200, {
-            "Content-Type": "text/html"
-        });
+// Creo il server
+const server = http.createServer(function (req, res) {
+    console.log(`${req.method} | ${req.url} effettuata`);
 
-        const randomQuote = getRandomQuote();
+    // Validazione favicon
+    if (req.url === "/favicon.ico") {
+        res.writeHead(404);
+        res.end("<h1>Not Found</h1>");
+        return;
+    }
 
-        res.end(`
+    res.writeHead(200, {
+        "Content-Type": "text/html"
+    });
+
+    const randomQuote = getRandomQuote();
+
+    res.end(`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -53,10 +61,10 @@ http
         </body>
         </html>
         `);
-    })
+})
 
-    // Avvio il server
-    .listen(port, host, () => {
-        const serverUrl = `http://${host}:${port}`;
-        console.log(`Server avviato su ${serverUrl}`);
-    });
+// Avvio il server
+server.listen(port, host, () => {
+    const serverUrl = `http://${host}:${port}`;
+    console.log(`Server avviato su ${serverUrl}`);
+});
