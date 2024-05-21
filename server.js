@@ -6,7 +6,7 @@ const http = require("http");
 // Definisco le variabili port, host e start
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || "localhost";
-const start = process.env.START || "Hello Wolrd!";
+const start = process.env.START || "Hello World!";
 
 // Aggiungo un array di frasi motivazionali
 const quotes = [
@@ -27,7 +27,7 @@ const getRandomQuote = () => {
 }
 
 // Creo il server
-const server = http.createServer(function (req, res) {
+const server = http.createServer((req, res) => {
     console.log(`${req.method} | ${req.url} effettuata`);
 
     // Validazione favicon
@@ -52,7 +52,6 @@ const server = http.createServer(function (req, res) {
             <title>MyServer</title>
 
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-            </head>
         </head>
         <body class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
             <h2>${start}</h2>
